@@ -1,0 +1,44 @@
+// problem N1
+public int singleNumber(int[] nums) {
+        HashSet<Integer> numSet = new HashSet<Integer>();
+        for(int element : nums){
+            if(!numSet.add(element)) 
+                numSet.remove(element);
+        }
+        Iterator<Integer> it = numSet.iterator();
+        return it.next();
+    }
+
+
+//problem N2
+ public int minSplit(int amount) {
+        int currAmount = amount;
+        int counter = 0;
+        int[] coins = {50, 20, 10, 5, 1};
+        for(int coin : coins){
+            if (currAmount == 0) return counter;
+            counter += currAmount / coin;
+            currAmount = currAmount % coin;
+       }
+       return counter;
+    }
+
+
+//problem N3
+    public int notContains(int[] array){
+        Arrays.sort(array);
+        if(array[0] != 1) return 1;
+        for(int i = 0; i < array.length - 1; i++ ){
+            int diff = array[i+1] - array[i];
+            if(diff >= 1) return array[i] + 1;
+        }
+        return 0;
+    }
+
+//problem N4
+
+public String addBinary(String a, String b) {
+		String result = Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2));
+		return result;
+	}
+
