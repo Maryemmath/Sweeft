@@ -1,0 +1,57 @@
+public class DeletionStack<T> {
+    private static class Node<T> {
+        T data;
+        Node<T> next;
+
+        Node(T data) {
+            this.data = data;
+        }
+    }
+
+    private Node<T> head;
+
+    public DeletionStack() {
+        head = null;
+    }
+
+    public void push(T element) {
+        Node<T> newNode = new Node<>(element);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty.");
+        }
+        T data = head.data;
+        head = head.next;
+        return data;
+    }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public boolean delete(T element) {
+        if (isEmpty()) {
+            return false;
+        }
+
+        if (head.data.equals(element)) {
+            head = head.next;
+            return true;
+        }
+
+        Node<T> current = head;
+        while (current.next != null && !current.next.data.equals(element)) {
+            current = current.next;
+        }
+
+        if (current.next != null) {
+            current.next = current.next.next;
+            return true;
+        }
+
+        return false;
+    }
