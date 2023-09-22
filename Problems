@@ -1,4 +1,5 @@
 // problem N1
+
 public int singleNumber(int[] nums) {
         HashSet<Integer> numSet = new HashSet<Integer>();
         for(int element : nums){
@@ -11,6 +12,7 @@ public int singleNumber(int[] nums) {
 
 
 //problem N2
+
  public int minSplit(int amount) {
         int currAmount = amount;
         int counter = 0;
@@ -25,6 +27,7 @@ public int singleNumber(int[] nums) {
 
 
 //problem N3
+
     public int notContains(int[] array){
         Arrays.sort(array);
         if(array[0] != 1) return 1;
@@ -38,7 +41,7 @@ public int singleNumber(int[] nums) {
 //problem N4
 
 public String addBinary(String a, String b) {
-		String result = Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2));
-		return result;
-	}
+	String result = Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2));
+	return result;
+}
 
